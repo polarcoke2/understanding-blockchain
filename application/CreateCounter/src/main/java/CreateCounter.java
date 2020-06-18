@@ -10,6 +10,10 @@ import org.hyperledger.fabric.gateway.Wallets;
 
 public class CreateCounter {
 
+    static {
+        System.setProperty("org.hyperledger.fabric.sdk.service_discovery.as_localhost", "true");
+    }
+
     public static void main(String args[]) throws Exception {
 
         Path applicationPath = Paths.get(System.getProperty("user.dir"));
@@ -36,7 +40,7 @@ public class CreateCounter {
             // get the network and contract
             Network network = gateway.getNetwork("mychannel");
             System.out.println("channel access success");
-            Contract contract = network.getContract("FabCounter");
+            Contract contract = network.getContract("fabcounter");
             System.out.println("contract access success");
 
             contract.submitTransaction("createCounter", args[0], args[1], args[2]);

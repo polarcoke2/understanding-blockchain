@@ -69,7 +69,7 @@
       <updated>1591715036638</updated>
       <workItem from="1591715040393" duration="962000" />
       <workItem from="1592467874060" duration="1609000" />
-      <workItem from="1592477641333" duration="1621000" />
+      <workItem from="1592477641333" duration="3136000" />
     </task>
     <servers />
   </component>
@@ -109,6 +109,10 @@
       <screen x="0" y="0" width="1280" height="800" />
     </state>
     <state width="1238" height="263" key="GridCell.Tab.1.right/0.0.1280.800@0.0.1280.800" timestamp="1592478854135" />
+    <state x="178" y="62" key="Maven.ArtifactSearchDialog" timestamp="1592484810987">
+      <screen x="0" y="0" width="1280" height="800" />
+    </state>
+    <state x="178" y="62" key="Maven.ArtifactSearchDialog/0.0.1280.800@0.0.1280.800" timestamp="1592484810987" />
     <state x="317" y="232" key="com.intellij.ide.util.TipDialog" timestamp="1592477982770">
       <screen x="0" y="0" width="1280" height="800" />
     </state>
