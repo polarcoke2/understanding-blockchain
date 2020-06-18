@@ -143,6 +143,12 @@ echo ""
 # ex) npm install or mvn clean package
 
 echo "TODO 5 BEGIN"
+cd $APPLICATION/EnrollAdmin
+mvn clean package
+
+cd $APPLICATION/RegisterUser
+mvn clean package
+
 cd $APPLICATION/CreateCounter
 mvn clean package
 
@@ -152,6 +158,9 @@ mvn clean package
 cd $APPLICATION/ReadCounter
 mvn clean package
 
+echo "TODO 5 END"
+echo ""
+echo ""
 # Test Clients and the Chaincode
 # 1) Enroll the administrator
 echo "SNU Blockchain> Enroll the administrator"
@@ -164,6 +173,8 @@ if [ "$LANG" = "node" ]; then
 elif [ "$LANG" = "java" ]; then
   java -jar EnrollAdmin.jar
 fi
+echo ""
+echo ""
 
 # 2) Register the appUser
 echo "SNU Blockchain> Register the user"
@@ -173,20 +184,28 @@ if [ "$LANG" = "node" ]; then
 elif [ "$LANG" = "java" ]; then
   java -jar RegisterUser.jar
 fi
+echo ""
+echo ""
 
 # 3) Create the counters
 echo "SNU Blockchain> Create the counters"
 cd $ROOT
 scripts/create.sh $LANG
+echo ""
+echo ""
 
 # 4) Update the counters 
 echo "SNU Blockchain> Update the counters"
 scripts/update.sh $LANG
+echo ""
+echo ""
 
 # 5) Read the counters
 echo "SNU Blockchain> Read the counters"
 rm ${ANSWER_FILE}
 scripts/read.sh $LANG > ${ANSWER_FILE}
+echo ""
+echo ""
 
 echo "SNU Blockchain> Clean the test network"
 ./finish_network.sh
