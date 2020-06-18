@@ -51,7 +51,8 @@ peer version
 peer lifecycle chaincode package fabcounter.tar.gz --path ../chaincode/build/install/cntrcontract --lang java --label fabcounter_1
 
 echo "TODO 1 END: Packaging done"
-
+echo ""
+echo ""
 # 2) TODO 2: Install the Chaincode
 
 echo "TODO 2 BEGIN: Install the chaincode"
@@ -74,6 +75,8 @@ export CORE_PEER_ADDRESS=localhost:9051
 peer lifecycle chaincode install fabcounter.tar.gz
 
 echo "TODO 2 END: Installing done"
+echo ""
+echo ""
 # 3) TODO 3: Approve a Chaincode Definition
 
 echo "TODO 3 BEGIN: approve the chaincode definition"
@@ -101,9 +104,11 @@ peer lifecycle chaincode approveformyorg -o localhost:7050 \
 --tls \
 --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
-
+echo "TODO 3 END"
+echo ""
+echo ""
 # 4) TODO 4: Committing the Chaincode Definition to the Channel
-
+echo "TODO 4 BEGIN: commit the chaincode definition to the channel"
 export COMMITNESS=$(peer lifecycle chaincode checkcommitreadiness --channelID mychannel \
 --name fabcounter \
 --version 1.0 \
@@ -111,7 +116,7 @@ export COMMITNESS=$(peer lifecycle chaincode checkcommitreadiness --channelID my
 --tls \
 --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem)
 
-echo COMMITNESS
+echo "$COMMITNESS"
 # parse two true
 
 peer lifecycle chaincode commit -o localhost:7050 \
@@ -131,9 +136,13 @@ peer lifecycle chaincode querycommitted \
 --name fabcar \
 --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
-
+echo "TODO 4 END"
+echo ""
+echo ""
 # TODO 5: Please Install any Dependencies and Generate Binaries of Client Applications (or Transactions), if needed
 # ex) npm install or mvn clean package
+
+echo "TODO 5 BEGIN"
 cd $APPLICATION/CreateCounter
 mvn clean package
 
