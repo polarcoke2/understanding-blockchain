@@ -29,12 +29,6 @@ public class ReadCounter {
 
             byte[] result;
 
-            if (args.length != 1) {
-                String errorMessage = String.format("The argument length is wrong. It should have one arguments," +
-                        "but is given %d!", args.length);
-                System.out.println(errorMessage);
-                Throw new Exception(errorMessage);
-            }
             //contract.submitTransaction("readCounter", args[0]);
 
             result = contract.evaluateTransaction("readCounter", args[0]);
