@@ -12,10 +12,9 @@ public class CreateCounter {
 
     public static void main(String args[]) throws Exception {
 
-        Path walletPath = Paths.get(System.getProperty("user.dir"));
-        Path applicationPath = walletPath.getParent();
+        Path applicationPath = Paths.get(System.getProperty("user.dir"));
         Path rootPath = applicationPath.getParent();
-        walletPath = Paths.get(applicationPath.toString(), "wallet");
+        Path walletPath = Paths.get(applicationPath.toString(), "wallet");
 
         System.out.println(walletPath);
         System.out.println(applicationPath);
