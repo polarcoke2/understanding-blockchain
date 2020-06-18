@@ -133,7 +133,7 @@ peer lifecycle chaincode commit -o localhost:7050 \
 
 peer lifecycle chaincode querycommitted \
 --channelID mychannel \
---name fabcar \
+--name fabcounter \
 --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
 
 echo "TODO 4 END"
