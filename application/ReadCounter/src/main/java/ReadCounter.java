@@ -12,10 +12,14 @@ public class ReadCounter {
 
     public static void main(String args[]) throws Exception {
 
-        Path walletPath = Paths.get("wallet");
+        Path walletPath = Paths.get(System.getProperty("user.dir"));
+        Path applicationPath = walletPath.getParent();
+        Path rootPath = applicationPath.getParent();
+        walletPath = Paths.get(applicationPath.toString(), "wallet");
+
         Wallet wallet = Wallets.newFileSystemWallet(walletPath);
         // load a CCP
-        Path networkConfigPath = Paths.get("..", "test-network", "organizations", "peerOrganizations", "org2.example.com", "connection-org2.json");
+        Path networkConfigPath = Paths.get(rootPath.toString(), "test-network", "organizations", "peerOrganizations", "org2.example.com", "connection-org2.json");
 
         Gateway.Builder builder = Gateway.createBuilder();
         builder.identity(wallet, "appUser").networkConfig(networkConfigPath).discovery(true);
