@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a3e5432-bf38-48bb-9217-ff9350668982" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/CreateCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CreateCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ReadCounter/src/main/java/ReadCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ReadCounter/src/main/java/ReadCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../UpdateCounter/src/main/java/UpdateCounter.java" beforeDir="false" afterPath="$PROJECT_DIR$/../UpdateCounter/src/main/java/UpdateCounter.java" afterDir="false" />
-    </list>
+    <list default="true" id="4a3e5432-bf38-48bb-9217-ff9350668982" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +51,7 @@
       <option name="presentableId" value="Default" />
       <updated>1591715036638</updated>
       <workItem from="1591715040393" duration="962000" />
-      <workItem from="1592467874060" duration="1138000" />
+      <workItem from="1592467874060" duration="1169000" />
     </task>
     <servers />
   </component>
