@@ -10,12 +10,15 @@ import org.hyperledger.fabric.gateway.Wallets;
 
 public class UpdateCounter {
 
+    static {
+        System.setProperty("org.hyperledger.fabric.sdk.service_discovery.as_localhost", "true");
+    }
+
     public static void main(String args[]) throws Exception {
 
-        Path walletPath = Paths.get(System.getProperty("user.dir"));
-        Path applicationPath = walletPath.getParent();
+        Path applicationPath = Paths.get(System.getProperty("user.dir"));
         Path rootPath = applicationPath.getParent();
-        walletPath = Paths.get(applicationPath.toString(), "wallet");
+        Path walletPath = Paths.get(applicationPath.toString(), "wallet");
 
         Wallet wallet = Wallets.newFileSystemWallet(walletPath);
         // load a CCP
@@ -30,19 +33,9 @@ public class UpdateCounter {
 
             // get the network and contract
             Network network = gateway.getNetwork("mychannel");
-            Contract contract = network.getContract("FabCounter");
+            Contract contract = network.getContract("fabcounter");
 
-            //byte[] result;
-            //if (args.length != 1) {
-            //    String errorMessage = String.format("The argument length is wrong. It should have one arguments," +
-            //            "but is given %d!", args.length);
-            //    System.out.println(errorMessage);
-            //    Throw new Exception(errorMessage);
-            //}
             contract.submitTransaction("UpdateCounter");
-
-            //result = contract.evaluateTransaction("queryCar", "CAR10");
-            //System.out.println(new String(result));
         }
     }
 }

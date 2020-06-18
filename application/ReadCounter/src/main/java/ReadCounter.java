@@ -10,12 +10,15 @@ import org.hyperledger.fabric.gateway.Wallets;
 
 public class ReadCounter {
 
+    static {
+        System.setProperty("org.hyperledger.fabric.sdk.service_discovery.as_localhost", "true");
+    }
+
     public static void main(String args[]) throws Exception {
 
-        Path walletPath = Paths.get(System.getProperty("user.dir"));
-        Path applicationPath = walletPath.getParent();
+        Path applicationPath = Paths.get(System.getProperty("user.dir"));
         Path rootPath = applicationPath.getParent();
-        walletPath = Paths.get(applicationPath.toString(), "wallet");
+        Path walletPath = Paths.get(applicationPath.toString(), "wallet");
 
         Wallet wallet = Wallets.newFileSystemWallet(walletPath);
         // load a CCP
@@ -29,7 +32,7 @@ public class ReadCounter {
 
             // get the network and contract
             Network network = gateway.getNetwork("mychannel");
-            Contract contract = network.getContract("FabCounter");
+            Contract contract = network.getContract("fabcounter");
 
             byte[] result;
 
