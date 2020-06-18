@@ -13,7 +13,7 @@ public class CreateCounter {
 
         Path walletPath = Paths.get("wallet");
         System.out.println(walletPath);
-        Wallet wallet = Wallet.createFileSystemWallet(walletPath);
+        Wallet wallet = Wallet.newFileSystemWallet(walletPath);
         //Wallet wallet = Wallet.createFileSystemWallet(walletPath);
         // load a CCP
         Path networkConfigPath = Paths.get("..", "test-network", "organizations", "peerOrganizations", "org1.example.com", "connection-org1.json");

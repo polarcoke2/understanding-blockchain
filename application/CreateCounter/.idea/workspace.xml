@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a3e5432-bf38-48bb-9217-ff9350668982" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../chaincode/src/main/java/FabCounter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../chaincode/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../../chaincode/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +53,7 @@
       <option name="presentableId" value="Default" />
       <updated>1591715036638</updated>
       <workItem from="1591715040393" duration="962000" />
+      <workItem from="1592467874060" duration="571000" />
     </task>
     <servers />
   </component>

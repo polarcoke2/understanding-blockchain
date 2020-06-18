@@ -12,9 +12,9 @@ public class CreateCounter {
     public static void main(String args[]) throws Exception {
 
         Path walletPath = Paths.get("wallet");
-        Wallet wallet = Wallet.createFileSystemWallet(walletPath);
+        Wallet wallet = Wallet.newFileSystemWallet(walletPath);
         // load a CCP
-        Path networkConfigPath = Paths.get("..", "test-network", "organizations", "peerOrganizations", "org1.example.com", "connection-org1.json");
+        Path networkConfigPath = Paths.get("..", "test-network", "organizations", "peerOrganizations", "org2.example.com", "connection-org2.json");
 
         Gateway.Builder builder = Gateway.createBuilder();
         builder.identity(wallet, "appUser").networkConfig(networkConfigPath).discovery(true);
