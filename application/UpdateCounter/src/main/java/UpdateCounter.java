@@ -35,7 +35,7 @@ public class UpdateCounter {
             Network network = gateway.getNetwork("mychannel");
             Contract contract = network.getContract("fabcounter");
 
-            contract.submitTransaction("UpdateCounter");
+            contract.submitTransaction("updateCounter");
         }
     }
 }
