@@ -29,12 +29,15 @@ public class CreateCounter {
         Gateway.Builder builder = Gateway.createBuilder();
         builder.identity(wallet, "appUser").networkConfig(networkConfigPath).discovery(true);
 
+        System.out.println("builder.identity success");
         // create a gateway connection
         try (Gateway gateway = builder.connect()) {
-
+            System.out.println("connect success");
             // get the network and contract
             Network network = gateway.getNetwork("mychannel");
+            System.out.println("channel access success");
             Contract contract = network.getContract("FabCounter");
+            System.out.println("contract access success");
 
             contract.submitTransaction("createCounter", args[0], args[1], args[2]);
         }
