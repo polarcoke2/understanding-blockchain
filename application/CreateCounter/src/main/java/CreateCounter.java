@@ -12,6 +12,7 @@ public class CreateCounter {
     public static void main(String args[]) throws Exception {
 
         Path walletPath = Paths.get("wallet");
+        System.out.println(walletPath);
         Wallet wallet = Wallet.createFileSystemWallet(walletPath);
         //Wallet wallet = Wallet.createFileSystemWallet(walletPath);
         // load a CCP
