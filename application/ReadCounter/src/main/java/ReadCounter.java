@@ -12,7 +12,7 @@ public class CreateCounter {
     public static void main(String args[]) throws Exception {
 
         Path walletPath = Paths.get("wallet");
-        Wallet wallet = Wallet.newFileSystemWallet(walletPath);
+        Wallet wallet = Wallets.newFileSystemWallet(walletPath);
         // load a CCP
         Path networkConfigPath = Paths.get("..", "test-network", "organizations", "peerOrganizations", "org2.example.com", "connection-org2.json");
 
