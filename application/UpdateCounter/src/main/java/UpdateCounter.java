@@ -27,12 +27,12 @@ public class CreateCounter {
             Contract contract = network.getContract("FabCounter");
 
             //byte[] result;
-            if (args.length != 1) {
-                String errorMessage = String.format("The argument length is wrong. It should have one arguments," +
-                        "but is given %d!", args.length);
-                System.out.println(errorMessage);
-                Throw new Exception(errorMessage);
-            }
+            //if (args.length != 1) {
+            //    String errorMessage = String.format("The argument length is wrong. It should have one arguments," +
+            //            "but is given %d!", args.length);
+            //    System.out.println(errorMessage);
+            //    Throw new Exception(errorMessage);
+            //}
             contract.submitTransaction("UpdateCounter");
 
             //result = contract.evaluateTransaction("queryCar", "CAR10");

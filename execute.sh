@@ -37,7 +37,7 @@ echo "SNU Blockchain> Configure the test network"
 # 1) TODO 1: Package the Chaincode
 
 echo "TODO 1 BEGIN: Package the Chaincode"
-cd $ROOT/chaincode/src/main/java || exit
+cd $ROOT/chaincode/ || exit
 ./gradlew installDist
 
 cd $NETWORK || exit
@@ -48,7 +48,7 @@ cd $NETWORK || exit
 
 peer version
 
-peer lifecycle chaincode package fabcounter.tar.gz --path ../chaincode/src/main/java/ --lang java --label fabcounter_1
+peer lifecycle chaincode package fabcounter.tar.gz --path ../chaincode/build/install/cntrcontract --lang java --label fabcounter_1
 
 echo "TODO 1 END: Packaging done"
 
@@ -106,16 +106,44 @@ peer lifecycle chaincode approvefromyorg -o localhost:7050 \
 
 # 4) TODO 4: Committing the Chaincode Definition to the Channel
 
-peer lifecycle chaincode checkcommitreadiness --channelID mychannel \
+export COMMITNESS=$(peer lifecycle chaincode checkcommitreadiness --channelID mychannel \
 --name fabcounter \
 --version 1.0 \
 --sequence 1 \
 --tls \
+--cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem)
+
+echo COMMITNESS
+# parse two true
+
+peer lifecycle chaincode commit -o localhost:7050 \
+--ordererTLSHostnameOverride orderer.example.com \
+--channelID mychannel \
+--name fabcounter \
+--version 1.0 \
+--sequence 1 \
+--tls \
+--cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+--peerAddresses localhost:7051 \
+--tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+--peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+
+peer lifecycle chaincode querycommitted \
+--channelID mychannel \
+--name fabcar \
 --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
 
 # TODO 5: Please Install any Dependencies and Generate Binaries of Client Applications (or Transactions), if needed
 # ex) npm install or mvn clean package
+cd $APPLICATION/CreateCounter
+mvn clean package
 
+cd $APPLICATION/UpdateCounter
+mvn clean package
+
+cd $APPLICATION/ReadCounter
+mvn clean package
 
 # Test Clients and the Chaincode
 # 1) Enroll the administrator
