@@ -77,10 +77,9 @@ echo "TODO 2 END: Installing done"
 # 3) TODO 3: Approve a Chaincode Definition
 
 echo "TODO 3 BEGIN: approve the chaincode definition"
-export PACKAGE_ID=$(peer lifecycle chaincode queryinstalled | awk '/fabcounter_1:/' | awk -F ',''{print $1}' | awk '{print $3}')
-
+export PACKAGE_ID=`peer lifecycle chaincode queryinstalled | awk '/<fabcounter_1>:/' | awk -F ',' '{ print $1 }' | awk '{ print $3 }'`
 echo "Package ID is..."
-echo $PACKAGE_ID
+echo "$PACKAGE_ID"
 
 peer lifecycle chaincode approvefromyorg -o localhost:7050 \
 --ordererTLSHostnameOverride orderer.example.com --channelID mychannel \
